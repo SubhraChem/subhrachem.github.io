@@ -57,6 +57,6 @@ function initViewer(containerId, modelPath) {
 }
 
 // Initialize 3 viewers
-initViewer("viewer1", "models/model1.glb");
+initViewer("viewer1", "models/orbital_2_1_1.glb");
 initViewer("viewer2", "models/model2.glb");
 initViewer("viewer3", "models/model3.glb");
