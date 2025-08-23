@@ -1,8 +1,8 @@
 // =============== EDIT THIS LIST ===============
 // Put your .glb filenames here (they must live in /models next to this file structure)
 const MODELS = [
-  // "bunny.glb",
-  // "robot.glb",
+  "orbital_2_1_0.glb",
+  "orbital_2_1_1.glb",
   // "molecule.glb",
 ];
 
