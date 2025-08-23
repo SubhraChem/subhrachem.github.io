@@ -2,50 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My 3D Gallery</title>
-  <link rel="stylesheet" href="assets/styles.css" />
-  <!-- model-viewer (web component) -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <meta name="description" content="Interactive 3D models (glb) gallery powered by model-viewer." />
+  <title>My 3D Models</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
   <header>
-    <div class="wrap">
-      <h1>My 3D Gallery</h1>
-      <nav>
-        <a href="./">Home</a>
-        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-    </div>
+    <h1>My 3D Models Gallery</h1>
+    <p>Interactive 3D models exported from Blender</p>
   </header>
 
-  <main>
-    <section class="hero">
-      <h2>Welcome 👋</h2>
-      <p>
-        This site displays interactive <strong>.glb</strong> models exported from Blender.
-        Rotate with mouse/touch, scroll to zoom. Files are hosted directly on GitHub Pages.
-      </p>
-      <ul>
-        <li>Export from Blender: <em>File → Export → glTF 2.0 (.glb)</em></li>
-        <li>Recommended: enable <strong>Draco compression</strong> to reduce file size</li>
-        <li>Upload your <code>.glb</code> files to the <code>/models</code> folder</li>
-        <li>Edit <code>script.js</code> → add filenames to <code>MODELS</code></li>
-      </ul>
-      <p><small class="mono">Tip: keep each file &lt; 100&nbsp;MB (GitHub's per‑file limit).</small></p>
+  <main id="gallery">
+    <!-- Each model card -->
+    <section class="card">
+      <h2>Model 1</h2>
+      <p>This is the first model, showing [short description here].</p>
+      <div class="viewer" id="viewer1"></div>
     </section>
 
-    <div id="gallery" class="grid"></div>
+    <section class="card">
+      <h2>Model 2</h2>
+      <p>This is the second model, representing [short description here].</p>
+      <div class="viewer" id="viewer2"></div>
+    </section>
+
+    <section class="card">
+      <h2>Model 3</h2>
+      <p>This is the third model, with [short description here].</p>
+      <div class="viewer" id="viewer3"></div>
+    </section>
   </main>
 
   <footer>
-    © <span id="year"></span> My 3D Gallery
+    <p>© 2025 My 3D Gallery</p>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
   <script src="script.js"></script>
 </body>
+  
 </html>
