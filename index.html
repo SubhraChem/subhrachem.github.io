@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My 3D Gallery</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <!-- model-viewer (web component) -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <meta name="description" content="Interactive 3D models (glb) gallery powered by model-viewer." />
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>My 3D Gallery</h1>
+      <nav>
+        <a href="./">Home</a>
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Welcome 👋</h2>
+      <p>
+        This site displays interactive <strong>.glb</strong> models exported from Blender.
+        Rotate with mouse/touch, scroll to zoom. Files are hosted directly on GitHub Pages.
+      </p>
+      <ul>
+        <li>Export from Blender: <em>File → Export → glTF 2.0 (.glb)</em></li>
+        <li>Recommended: enable <strong>Draco compression</strong> to reduce file size</li>
+        <li>Upload your <code>.glb</code> files to the <code>/models</code> folder</li>
+        <li>Edit <code>script.js</code> → add filenames to <code>MODELS</code></li>
+      </ul>
+      <p><small class="mono">Tip: keep each file &lt; 100&nbsp;MB (GitHub's per‑file limit).</small></p>
+    </section>
+
+    <div id="gallery" class="grid"></div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> My 3D Gallery
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
