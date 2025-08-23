@@ -22,7 +22,7 @@ function initViewer(containerId, modelPath) {
   scene.add(dirLight);
 
   // Controls
-  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
 
   // Load model
