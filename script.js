@@ -3,7 +3,7 @@
 const MODELS = [
   "orbital_2_1_0.glb",
   "orbital_2_1_1.glb",
-  // "molecule.glb",
+  "anim_test.glb",
 ];
 
 // Optional: human-friendly titles (otherwise we use the filename)
