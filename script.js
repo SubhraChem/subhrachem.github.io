@@ -1,81 +1,62 @@
-// =============== EDIT THIS LIST ===============
-// Put your .glb filenames here (they must live in /models next to this file structure)
-const MODELS = [
-  "orbital_2_1_0.glb",
-  "orbital_2_1_1.glb",
-  "anim_test.glb",
-];
+function initViewer(containerId, modelPath) {
+  const container = document.getElementById(containerId);
 
-// Optional: human-friendly titles (otherwise we use the filename)
-const TITLES = {
-  // "bunny.glb": "Stanford Bunny",
-};
+  // Scene setup
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xf8fafc);
 
-// ========== You usually don't need to edit below ==========
-function createCard(filename) {
-  const title = TITLES[filename] || filename;
-  const card = document.createElement('div');
-  card.className = 'card';
+  const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+  camera.position.set(2, 2, 3);
 
-  const header = document.createElement('div');
-  header.className = 'card-header';
-  header.textContent = title;
-  card.appendChild(header);
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  container.appendChild(renderer.domElement);
 
-  const body = document.createElement('div');
-  body.className = 'card-body';
+  // Lights
+  const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
+  hemiLight.position.set(0, 20, 0);
+  scene.add(hemiLight);
 
-  const mv = document.createElement('model-viewer');
-  mv.setAttribute('src', `models/${filename}`);
-  mv.setAttribute('alt', title);
-  mv.setAttribute('camera-controls', '');
-  mv.setAttribute('auto-rotate', '');
-  mv.setAttribute('shadow-intensity', '1');
-  mv.setAttribute('exposure', '1.0');
-  mv.setAttribute('touch-action', 'pan-y'); // lets page scroll vertically on touch
-  body.appendChild(mv);
+  const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+  dirLight.position.set(5, 10, 7.5);
+  scene.add(dirLight);
 
-  card.appendChild(body);
+  // Controls
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
 
-  const footer = document.createElement('div');
-  footer.className = 'card-footer';
-  const size = document.createElement('span');
-  size.className = 'mono';
-  size.textContent = `models/${filename}`;
-  footer.appendChild(size);
+  // Load model
+  const loader = new THREE.GLTFLoader();
+  loader.load(modelPath, (gltf) => {
+    const model = gltf.scene;
+    scene.add(model);
 
-  const open = document.createElement('a');
-  open.href = `models/${filename}`;
-  open.target = '_blank';
-  open.rel = 'noopener';
-  open.textContent = 'Open file';
-  footer.appendChild(open);
+    // Play animations if present
+    if (gltf.animations && gltf.animations.length > 0) {
+      const mixer = new THREE.AnimationMixer(model);
+      gltf.animations.forEach((clip) => mixer.clipAction(clip).play());
 
-  card.appendChild(footer);
-  return card;
+      // Update loop with animations
+      function animate() {
+        requestAnimationFrame(animate);
+        mixer.update(0.01);
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      animate();
+    } else {
+      // No animation, just render loop
+      function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      animate();
+    }
+  });
 }
 
-function renderGallery() {
-  const grid = document.getElementById('gallery');
-  grid.innerHTML = '';
-
-  if (!Array.isArray(MODELS) || MODELS.length === 0) {
-    const help = document.createElement('div');
-    help.className = 'hero';
-    help.innerHTML = `
-      <h2>No models yet</h2>
-      <p>Upload your <code>.glb</code> files to the <code>/models</code> folder, then edit <code>script.js</code>
-         and add their filenames to <code>MODELS</code>. Example:</p>
-      <pre><code>const MODELS = [
-  "my_first_model.glb",
-  "my_second_model.glb"
-];</code></pre>
-    `;
-    grid.appendChild(help);
-    return;
-  }
-
-  MODELS.forEach(name => grid.appendChild(createCard(name)));
-}
-
-document.addEventListener('DOMContentLoaded', renderGallery);
+// Initialize 3 viewers
+initViewer("viewer1", "models/model1.glb");
+initViewer("viewer2", "models/model2.glb");
+initViewer("viewer3", "models/model3.glb");
