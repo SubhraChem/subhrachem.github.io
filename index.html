@@ -6,7 +6,7 @@
   <title>My 3D Models</title>
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Three.js and necessary loaders -->
+  <!-- Load Three.js and loaders BEFORE your script.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.179.1/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.179.1/examples/js/loaders/GLTFLoader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.179.1/examples/js/controls/OrbitControls.js"></script>
@@ -18,18 +18,16 @@
     <div id="viewer1" class="viewer"></div>
     <p class="caption"><b>Model 1:</b> This is the first model.</p>
   </div>
-
   <div class="viewer-container">
     <div id="viewer2" class="viewer"></div>
     <p class="caption"><b>Model 2:</b> This is the second model.</p>
   </div>
-
   <div class="viewer-container">
     <div id="viewer3" class="viewer"></div>
     <p class="caption"><b>Model 3:</b> This is the third model.</p>
   </div>
 
-  <!-- Your custom script -->
+  <!-- Your script must come AFTER Three.js -->
   <script src="js/script.js"></script>
 </body>
 </html>
