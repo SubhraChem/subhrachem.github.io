@@ -5,12 +5,7 @@ function initViewer(containerId, modelPath) {
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0xf0f0f0);
 
-  const camera = new THREE.PerspectiveCamera(
-    45,
-    container.clientWidth / container.clientHeight,
-    0.1,
-    1000
-  );
+  const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
   camera.position.set(0, 2, 5);
 
   const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -26,23 +21,18 @@ function initViewer(containerId, modelPath) {
   scene.add(light2);
 
   // Controls
-  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
 
   // Load Model
   const loader = new THREE.GLTFLoader();
-  loader.load(
-    modelPath,
-    (gltf) => {
-      const model = gltf.scene;
-      model.position.set(0, 0, 0);
-      scene.add(model);
-    },
-    undefined,
-    (error) => {
-      console.error("Error loading model:", error);
-    }
-  );
+  loader.load(modelPath, (gltf) => {
+    const model = gltf.scene;
+    model.position.set(0, 0, 0);
+    scene.add(model);
+  }, undefined, (error) => {
+    console.error("Error loading model:", error);
+  });
 
   // Handle resize
   window.addEventListener("resize", () => {
