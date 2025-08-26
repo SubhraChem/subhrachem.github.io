@@ -4,7 +4,7 @@ function createScene(canvasId, modelPath) {
 
   const scene = new BABYLON.Scene(engine);
 
-  // Transparent background → blends with section
+  // Transparent background
   scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
 
   // Camera
@@ -30,9 +30,12 @@ function createScene(canvasId, modelPath) {
   window.addEventListener("resize", () => {
     engine.resize();
   });
+
+  // 🚫 Prevent page scroll when zooming model
+  canvas.addEventListener("wheel", evt => evt.preventDefault(), { passive: false });
 }
 
-// Initialize 3 scenes
-createScene("modelCanvas1", "model1.glb");
-createScene("modelCanvas2", "model2.glb");
-createScene("modelCanvas3", "model3.glb");
+// Initialize the three viewers
+createScene("viewer1", "model1.glb");
+createScene("viewer2", "model2.glb");
+createScene("viewer3", "model3.glb");
