@@ -18,31 +18,17 @@
       padding: 40px;
       box-sizing: border-box;
     }
-    .section:nth-child(1) {
-      background-color: #f2f2f2; /* light gray */
-    }
-    .section:nth-child(2) {
-      background-color: #e6f0ff; /* light blue */
-    }
-    .section:nth-child(3) {
-      background-color: #e6ffe6; /* light green */
-    }
-    .text {
-      flex: 1;
-      padding: 20px;
-    }
-    .text h2 {
-      margin-top: 0;
-    }
-    .viewer {
-      flex: 1;
-      height: 500px;
-    }
+    .section:nth-child(1) { background-color: #f2f2f2; }
+    .section:nth-child(2) { background-color: #e6f0ff; }
+    .section:nth-child(3) { background-color: #e6ffe6; }
+    .text { flex: 1; padding: 20px; }
+    .text h2 { margin-top: 0; }
+    .viewer { flex: 1; height: 500px; }
     canvas {
       width: 100%;
       height: 100%;
       display: block;
-      touch-action: none; /* prevent default touch gestures */
+      touch-action: none;
     }
   </style>
 </head>
@@ -50,7 +36,7 @@
   <div class="section">
     <div class="text">
       <h2>Model 1</h2>
-      <p>This is the first model. It shows something important with details and description here.</p>
+      <p>This is the first model.</p>
     </div>
     <div class="viewer">
       <canvas id="renderCanvas1"></canvas>
@@ -60,7 +46,7 @@
   <div class="section">
     <div class="text">
       <h2>Model 2</h2>
-      <p>This is the second model. It demonstrates another concept with description here.</p>
+      <p>This is the second model.</p>
     </div>
     <div class="viewer">
       <canvas id="renderCanvas2"></canvas>
@@ -70,18 +56,17 @@
   <div class="section">
     <div class="text">
       <h2>Model 3</h2>
-      <p>This is the third model. It contains more details and an interactive 3D visualization.</p>
+      <p>This is the third model.</p>
     </div>
     <div class="viewer">
       <canvas id="renderCanvas3"></canvas>
     </div>
   </div>
 
-  <!-- Babylon.js -->
-  <script src="https://cdn.babylonjs.com/babylon.js"></script>
-  <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+  <!-- ✅ Use same version for both -->
+  <script src="https://cdn.jsdelivr.net/npm/babylonjs@7.18.0/babylon.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babylonjs-loaders@7.18.0/babylonjs.loaders.min.js"></script>
 
-  <!-- Your script -->
   <script src="script.js"></script>
 </body>
 </html>
