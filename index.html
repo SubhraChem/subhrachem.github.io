@@ -2,34 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My 3D Models</title>
   <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Load Three.js and loaders BEFORE your script.js -->
-  <!-- Three.js core -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
-  <!-- Extras -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/examples/js/controls/OrbitControls.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/examples/js/loaders/GLTFLoader.js"></script>
+  <!-- Babylon.js CDN -->
+  <script src="https://cdn.babylonjs.com/babylon.js"></script>
+  <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
 </head>
 <body>
   <h1>My Interactive 3D Models</h1>
+  <div class="gallery">
 
-  <div class="viewer-container">
-    <div id="viewer1" class="viewer"></div>
-    <p class="caption"><b>Model 1:</b> This is the first model.</p>
-  </div>
-  <div class="viewer-container">
-    <div id="viewer2" class="viewer"></div>
-    <p class="caption"><b>Model 2:</b> This is the second model.</p>
-  </div>
-  <div class="viewer-container">
-    <div id="viewer3" class="viewer"></div>
-    <p class="caption"><b>Model 3:</b> This is the third model.</p>
+    <!-- Model 1 -->
+    <div class="model-card">
+      <h2>Model 1</h2>
+      <p>This is my first 3D model.</p>
+      <canvas id="modelCanvas1"></canvas>
+    </div>
+
+    <!-- Model 2 -->
+    <div class="model-card">
+      <h2>Model 2</h2>
+      <p>This is my second 3D model.</p>
+      <canvas id="modelCanvas2"></canvas>
+    </div>
+
+    <!-- Model 3 -->
+    <div class="model-card">
+      <h2>Model 3</h2>
+      <p>This is my third 3D model.</p>
+      <canvas id="modelCanvas3"></canvas>
+    </div>
+
   </div>
 
-  <!-- Your script must come AFTER Three.js -->
   <script src="js/script.js"></script>
 </body>
 </html>
