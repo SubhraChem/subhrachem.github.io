@@ -1,59 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>My 3D Models</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- Babylon.js CDN -->
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.babylonjs.com/babylon.js"></script>
   <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
 </head>
 <body>
-  <h1 class="page-title">My Interactive 3D Models</h1>
-
-  <!-- Section 1 -->
   <section class="model-section">
-    <div class="text-side">
+    <div class="text">
       <h2>Model 1</h2>
       <p>
-        This is my first 3D model. Here you can write a longer description of what the model represents, 
-        why it is interesting, and any story or background about it.
+        This is the first model. You can add a longer description here explaining
+        its purpose, features, or story. The text and the model share the same
+        section background.
       </p>
     </div>
-    <div class="canvas-side">
-      <canvas id="modelCanvas1"></canvas>
-    </div>
+    <canvas id="modelCanvas1"></canvas>
   </section>
 
-  <!-- Section 2 -->
   <section class="model-section">
-    <div class="text-side">
+    <div class="text">
       <h2>Model 2</h2>
       <p>
-        This is my second 3D model. Write some details here, maybe about how you made it, 
-        what features are important, or what it’s supposed to represent.
+        Here is the second model with its description. The layout adapts so the
+        model is shown on the right side, and the description on the left.
       </p>
     </div>
-    <div class="canvas-side">
-      <canvas id="modelCanvas2"></canvas>
-    </div>
+    <canvas id="modelCanvas2"></canvas>
   </section>
 
-  <!-- Section 3 -->
   <section class="model-section">
-    <div class="text-side">
+    <div class="text">
       <h2>Model 3</h2>
       <p>
-        This is my third 3D model. Here you can provide additional information, 
-        insights into its design, or even instructions for how to interact with it.
+        Finally, this is the third model. Again, you can expand this paragraph
+        with any explanation you want. The background alternates between light
+        grey and light blue to keep things visually distinct.
       </p>
     </div>
-    <div class="canvas-side">
-      <canvas id="modelCanvas3"></canvas>
-    </div>
+    <canvas id="modelCanvas3"></canvas>
   </section>
 
-  <script src="js/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
