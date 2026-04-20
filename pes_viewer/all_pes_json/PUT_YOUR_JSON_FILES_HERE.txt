@@ -1,2 +1,0 @@
-Put your *_pes.json files in this folder.
-Then list them in pes_viewer/datasets.json.
