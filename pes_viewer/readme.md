@@ -445,11 +445,7 @@ energy[j][i]
 
 Interpretation:
 
-This entry stores
-
-$$
-E(q_{1,i}, q_{2,j}).
-$$
+`energy[j][i]` $=E(q_{1,i}, q_{2,j})$.
 
 ### 8.2 Gradient
 
@@ -466,13 +462,9 @@ Component convention:
 
 Interpretation:
 
-$$
-gradient[j][i][0] = \left.\frac{\partial E}{\partial q_1}\right|_{(q_1,q_2)=(q_{1,i},q_{2,j})}
-$$
+`gradient[j][i][0]` $= \left.\frac{\partial E}{\partial q_1}\right|_{(q_1,q_2)=(q_{1,i},q_{2,j})}$
 
-$$
-gradient[j][i][1] = \left.\frac{\partial E}{\partial q_2}\right|_{(q_1,q_2)=(q_{1,i},q_{2,j})}.
-$$
+`gradient[j][i][1]` $= \left.\frac{\partial E}{\partial q_2}\right|_{(q_1,q_2)=(q_{1,i},q_{2,j})}$.
 
 ### 8.3 Hessian
 
@@ -491,13 +483,12 @@ Component convention:
 
 Interpretation:
 
-$$
-hessian[j][i] =
+`hessian[j][i]` $=
 \begin{pmatrix}
 \dfrac{\partial^2 E}{\partial q_1^2} & \dfrac{\partial^2 E}{\partial q_1\partial q_2} \\
 \dfrac{\partial^2 E}{\partial q_2\partial q_1} & \dfrac{\partial^2 E}{\partial q_2^2}
-\end{pmatrix}_{(q_1,q_2)=(q_{1,i},q_{2,j})}.
-$$
+\end{pmatrix}_{(q_1,q_2)=(q_{1,i},q_{2,j})}
+$.
 
 ### 8.4 Geometry
 
@@ -515,11 +506,7 @@ Component convention:
 
 Interpretation:
 
-This entry stores
-
-$$
-R_{a,c}(q_{1,i}, q_{2,j}).
-$$
+`geometries[j][i][a][c]` $= R_{a,c}(q_{1,i}, q_{2,j})$.
 
 So `geometries[j][i][a]` is the Cartesian 3-vector of atom $a$ at the reduced-grid point indexed by `i` and `j`.
 
@@ -541,13 +528,9 @@ Component convention:
 
 Interpretation:
 
-$$
-geometry\_jacobian[j][i][0][a][c] = \left.\frac{\partial R_{a,c}}{\partial q_1}\right|_{(q_1,q_2)=(q_{1,i},q_{2,j})}
-$$
+`geometry_jacobian[j][i][0][a][c]` $= \left.\frac{\partial R_{a,c}}{\partial q_1}\right|_{(q_1,q_2)=(q_{1,i},q_{2,j})}$
 
-$$
-geometry\_jacobian[j][i][1][a][c] = \left.\frac{\partial R_{a,c}}{\partial q_2}\right|_{(q_1,q_2)=(q_{1,i},q_{2,j})}.
-$$
+`geometry_jacobian[j][i][1][a][c]` $= \left.\frac{\partial R_{a,c}}{\partial q_2}\right|_{(q_1,q_2)=(q_{1,i},q_{2,j})}$.
 
 
 ## 9. Practical rules for authors
