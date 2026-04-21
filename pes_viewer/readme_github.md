@@ -17,7 +17,7 @@ The full Cartesian molecular geometry still appears in the file, but only as a d
 A dataset contains
 
 - a rectangular grid in the two reduced coordinates $(q_1,q_2)$,
-- a scalar potential-energy surface $E(q_1,q_2)$,
+- a scalar potential-energy surface $``E(q_1,q_2)``$,
 - first and second derivatives of that reduced PES,
 - a reduced mass-weighted Hessian,
 - the displayed Cartesian geometry $R(q_1,q_2)$,
